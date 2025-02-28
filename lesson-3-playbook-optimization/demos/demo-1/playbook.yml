@@ -1,0 +1,31 @@
+- hosts: azure
+  become: true
+
+  vars:
+    udacity: true
+    ansible: false
+
+  tasks:
+    - name: Create 2 groups
+      group:
+        name: "{{ item }}"
+        state: present
+      loop:
+       - "udacity_group"
+       - "ansible_group"
+    
+    - name: Create udacity folder
+      file:
+        path: /udacity
+        state: directory
+      when: udacity
+    
+    - name: Create ansible folder
+      file:
+        path: /ansible
+        state: directory
+      when: not ansible
+
+    - name: Debug azure group_var
+      debug:
+        msg: "{{ azure_group_var }}"

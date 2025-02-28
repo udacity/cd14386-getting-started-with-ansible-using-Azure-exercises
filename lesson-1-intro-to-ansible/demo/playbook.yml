@@ -1,0 +1,11 @@
+- hosts: azure
+  become: true
+
+  tasks:
+    - name: Example from an Ansible Playbook
+      ping:
+      register: ping_output
+    
+    - name: Output results
+      debug:
+        msg: "{{ ping_output }}"

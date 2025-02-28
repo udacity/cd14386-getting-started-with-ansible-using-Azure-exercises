@@ -1,0 +1,2 @@
+- hosts: azure
+  become: true

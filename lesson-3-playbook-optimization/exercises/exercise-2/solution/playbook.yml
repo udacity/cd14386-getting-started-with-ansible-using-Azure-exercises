@@ -1,0 +1,14 @@
+- hosts: azure
+  become: true
+
+  tasks:
+    - name: List all Azure VM instances in a resource group
+      azure_rm_virtualmachine_info:
+        ad_user: student_7pmnzk18m7b1ghfx_003944345@vocareumvocareum.onmicrosoft.com
+        password: T!#sy&2HnJfUHUdhS1Jw%&sqFVCiuSEdTANCMqQBDg8Vvvir1bPZibnj$
+        resource_group: Udacity-Rg-1
+      register: azure_vm_info
+    
+    - name: Show Azure VM info
+      debug:
+        msg: "{{ azure_vm_info }}"

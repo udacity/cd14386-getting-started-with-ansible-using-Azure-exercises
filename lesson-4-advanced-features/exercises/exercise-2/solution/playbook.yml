@@ -1,0 +1,21 @@
+- hosts: azure
+  become: true
+
+  tasks:
+    - name: Error handling
+      block:
+        - name: Stat
+          stat:
+            path: /home/azureuser/udacity
+
+        - name: Force a failure
+          command: /bin/false
+      rescue:
+        - name: Successful command
+          file:
+            path: /home/azureuser/udacity
+            state: directory
+      always:
+        - name: Always do this
+          stat:
+            path: /etc

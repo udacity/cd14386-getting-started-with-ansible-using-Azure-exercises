@@ -1,0 +1,22 @@
+- hosts: azure
+  become: true
+
+  vars:
+    truth_test: "true"
+
+  tasks:
+    - name: Block commands
+      block:
+        - name: Run command
+          command: ls -al /home
+          register: home_list
+        
+        - name: Run a command if the first command succeeds
+          command: ls -al /etc
+          when: home_list.rc == 0
+        
+        - name: Run command if truth_test equals true
+          command: ls -al /var
+          when: truth_test | bool
+      tags:
+        - udacity
