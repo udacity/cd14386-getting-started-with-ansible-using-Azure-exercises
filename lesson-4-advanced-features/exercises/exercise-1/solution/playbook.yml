@@ -18,7 +18,7 @@
 
         - name: Run command if truth_test equals true
           debug: 
-            msg: "Only Debian 24 and newer"
-          when: ansible_facts['distribution_major_version'] | int >= 24
+            msg: "Only RHEL 9 and newer"
+          when: ansible_facts['distribution_major_version'] | int >= 9
       tags:
         - udacity

@@ -3,7 +3,7 @@
 
   tasks:
     - name: Get facts of the VM's ssh public key by resource group
-      azure_rm_sshpublickey_info:
+      azure.azcollection.azure_rm_sshpublickey_info:
         ad_user: student_7pmnzk18m7b1ghfx_003944345@vocareumvocareum.onmicrosoft.com
         password: T!#sy&2HnJfUHUdhS1Jw%&sqFVCiuSEdTANCMqQBDg8Vvvir1bPZibnj$
         resource_group: Udacity-Rg-1
