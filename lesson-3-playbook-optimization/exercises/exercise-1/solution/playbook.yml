@@ -11,8 +11,8 @@
     - name: Uname -r
       shell: uname -r
       when:
-        - ansible_facts['distribution'] == "Debian"
-        - ansible_facts['distribution_major_version'] == "24"
+        - ansible_facts['distribution'] == "Red Hat"
+        - ansible_facts['distribution_major_version'] == "9"
 
     - name: Stat folder
       stat:
