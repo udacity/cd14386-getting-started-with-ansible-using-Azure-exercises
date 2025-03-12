@@ -1,12 +1,12 @@
-- hosts: azure
-  become: true
+- hosts: localhost
 
   tasks:
     - name: List all Azure VM instances in a resource group
       azure.azcollection.azure_rm_virtualmachine_info:
         ad_user: student_7pmnzk18m7b1ghfx_003944345@vocareumvocareum.onmicrosoft.com
-        password: T!#sy&2HnJfUHUdhS1Jw%&sqFVCiuSEdTANCMqQBDg8Vvvir1bPZibnj$
-        resource_group: Udacity-Rg-1
+        password: f75!V#2c%GQ
+        resource_group: Regroup_6iNbgkWS
+        subscription_id: 94ec3a64-dcfe-4219-9e29-88221690c382
       register: azure_vm_info
     
     - name: Show Azure VM info
